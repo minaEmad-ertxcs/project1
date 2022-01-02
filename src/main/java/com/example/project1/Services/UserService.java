@@ -4,10 +4,12 @@ import com.example.project1.SystemMemory;
 import com.example.project1.model.User;
 import com.example.project1.Events.*;
 import com.example.project1.Discount.*;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+@Component
 public class UserService implements Signup<User>, Login {
 
     private User user;
@@ -27,10 +29,11 @@ public class UserService implements Signup<User>, Login {
     }
 
     @Override
-    public void signUp(User user) {
+    public User signUp(User user) {
         this.user = new User(user);
         this.user.setFirstTime(true);
         SystemMemory.addUser(this);
+        return user;
     }
 
     public String askForRequest(String source, String dest, int numOfPeople) {
@@ -133,7 +136,12 @@ public class UserService implements Signup<User>, Login {
         return user;
     }
 
+    public UserService getUserById(int index) {
+        return SystemMemory.getUsers().get(index);
+    }
+
     public void setUser(User user) {
         this.user = user;
     }
+
 }

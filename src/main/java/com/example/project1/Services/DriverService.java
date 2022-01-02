@@ -26,10 +26,11 @@ public class DriverService implements Signup<Driver>, Login, Observer {
     }
 
     @Override
-    public void signUp(Driver driver) {
+    public Driver signUp(Driver driver) {
         this.driver = new Driver(driver);
         this.rating = new Rating();
         AdminService.ListOfDrivers.add(this);
+        return this.driver;
     }
 
     /*public void ShowAllRequests() {
@@ -49,7 +50,7 @@ public class DriverService implements Signup<Driver>, Login, Observer {
     }
 
     public void showAllFavoriteArea() {
-        System.out.println(driver.getFavoriteAreas());
+        driver.getFavoriteAreas();
     }
 
     public void selectRequest(int numOfRequest, int price) {

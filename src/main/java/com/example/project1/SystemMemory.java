@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 import com.example.project1.Events.Event;
 import com.example.project1.Services.*;
+import com.example.project1.model.User;
 
 public class SystemMemory {
 
@@ -51,11 +52,15 @@ public class SystemMemory {
         return result;
     }
 
-    public static ArrayList<String> getUsers() {
-        ArrayList<String> result = new ArrayList<>();
-        for (int i = 0; i < users.size(); i++) {
+    public static ArrayList<UserService> getUsers() {
+        ArrayList<UserService> result = new ArrayList<>();
+        /*for (int i = 0; i < users.size(); i++) {
             //System.out.println("User " + (i + 1) + " : " + users.get(i).getUser());
             result.add("User " + (i + 1) + " : " + users.get(i).getUser());
+        }*/
+        for (UserService user : users) {
+            //System.out.println("User " + (i + 1) + " : " + users.get(i).getUser());
+            result.add(user);
         }
         return result;
     }

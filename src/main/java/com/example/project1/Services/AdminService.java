@@ -31,7 +31,6 @@ public class AdminService implements Login {
         DriverService d = ListOfDrivers.get(index - 1);
         ListOfDrivers.remove(index - 1);
         SystemMemory.addDriver(d);
-        //Request.observersList.add(d);
     }
 
     public ArrayList<String> listPendingDriverRegistrations() {
